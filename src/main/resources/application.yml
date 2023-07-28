@@ -1,0 +1,50 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3308/blog?serverTimezone=Asia/Seoul
+    username: root
+    password: root
+
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        use-new-id-generator-mappings: false
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: false
+        default_batch_fetch_size: 10
+
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+  logging.level:
+    org.hibernate.SQL : debug
+
+  kafka:
+    bootstrap-servers: localhost:9092  #kakfa ???? / ?? 9092
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer # producer?? kafka? ???? ???? key?
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer # producer?? kafka? ???? ???? value?
+
+    template:
+      default-topic: testTopic # ?? ?? topic name
+
+
