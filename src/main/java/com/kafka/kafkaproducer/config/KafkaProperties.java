@@ -12,6 +12,5 @@ import org.springframework.context.annotation.PropertySource;
 @Getter
 @Setter
 public class KafkaProperties {
-    @Value("${spring.kafka.bootstrap-servers}")
     private String bootStrapServers;
 }
