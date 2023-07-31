@@ -38,13 +38,14 @@ spring:
     org.hibernate.SQL : debug
 
   kafka:
-    bootstrap-servers: localhost:9092  #kakfa ???? / ?? 9092
+    bootstrap-servers: localhost:9092  #kakfa 서버정보 / port 9092
 
     producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer # producer?? kafka? ???? ???? key?
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer # producer?? kafka? ???? ???? value?
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer # producer에서 kafka로 전달할때 사용하는 key값
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer # producer에서 kafka로 전달할때 사용하는 value값
+      acks: 1
 
     template:
-      default-topic: testTopic # ?? ?? topic name
+      default-topic: testTopic # 기본설정 topic name
 
 
